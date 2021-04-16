@@ -11,6 +11,7 @@ backlog = 1
 size = 1024
 s = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_RFCOMM)
 s.bind((hostMACAddress,port))
+print("Listening...")
 s.listen(backlog)
 try:
     client, address = s.accept()
