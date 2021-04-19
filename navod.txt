@@ -1,0 +1,31 @@
+https://www.raspberrypi.org/forums/viewtopic.php?t=247892
+
+//jack output
+sudo bash -c 'echo -e " defaults.pcm.card 1 \ndefaults.ctl.card 1" > /etc/asound.conf'
+
+//nejaky kokotiny kolem bluetooth... neni potreba
+systemctl status bluetooth
+sudo systemctl start bluetooth
+sudo /etc/init.d/bluetooth start
+
+//je potreba
+sudo apt-get install bluealsa
+
+1, unpair pi - bluetoothctl
+2, edit - sudo nano /lib/systemd/system/bluealsa.service
+    ExecStart=/usr/bin/bluealsa --profile=a2dp-sink
+
+3, create - sudo nano /etc/systemd/system/aplay.service
+    [Unit]
+    Description=BlueALSA aplay service
+    After=bluetooth.service
+    Requires=bluetooth.service
+    
+    [Service]
+    ExecStart=/usr/bin/bluealsa-aplay 00:00:00:00:00:00
+    
+    [Install]
+    WantedBy=multi-user.target
+
+4, sudo systemctl enable aplay
+5, reboot
