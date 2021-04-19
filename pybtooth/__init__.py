@@ -1,4 +1,4 @@
-import constants
+from .constants import *
 from .device import BluetoothDevice
 from .manager import BluetoothManager
 from .media_player import BluetoothMediaPlayer
