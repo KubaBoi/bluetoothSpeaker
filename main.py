@@ -1,2 +1,4 @@
 from subprocess import call
-call('hcitool con', shell=True)
+a = call('hcitool con', shell=True)
+print("a")
+print(a)
