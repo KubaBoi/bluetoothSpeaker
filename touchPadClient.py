@@ -18,8 +18,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         decoded = recieved.decode("utf-8")
         data = decoded.split(",")
 
-        pyautogui.moveRel(int(data[0]), int(data[1]))
-
-print('Received', repr(data))
-
-#pyautogui.moveTo(x+10, y+50)
+        pyautogui.dragRel(int(data[0]), int(data[1]))
