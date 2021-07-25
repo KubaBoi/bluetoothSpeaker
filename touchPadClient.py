@@ -11,7 +11,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
     while True:
         s.sendall(b"1")
-        data = json.loads(s.recv(1024).decode("utf-8"))
+        recieved = s.recv(1024)
+        decoded = recieved.decode("utf-8")
+        data = json.loads(decoded)
+        
         print(data)
         position = pyautogui.position()
         pyautogui.moveTo(position[0] + data[0], position[1] + data[1])

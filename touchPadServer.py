@@ -22,6 +22,9 @@ try:
         
         newPosition = pyautogui.position()
 
+        print(newPosition)
+        print(oldPosition)
+
         deltaPosition = []
         deltaPosition.append(newPosition[0] - oldPosition[0])
         deltaPosition.append(newPosition[1] - oldPosition[1])
