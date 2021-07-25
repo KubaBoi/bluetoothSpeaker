@@ -34,10 +34,10 @@ while True:
 
             oldPosition = newPosition
             print(deltaPosition)
-            r = str(deltaPosition[0])+","+str(deltaPosition[1])
-            print(r)
+            r = str(deltaPosition[0]) + "," + str(deltaPosition[1])
+            print(bytes(r, "utf-8"))
 
-            conn.sendall(str(r, "utf-8"))
+            conn.sendall(bytes(r, "utf-8"))
     except Exception as e:
         print("Disconnected by", addr)
         print(str(i) + ": ")
