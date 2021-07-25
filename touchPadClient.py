@@ -12,13 +12,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     while True:
         s.sendall(b"1")
         recieved = s.recv(1024)
-        print(recieved)
         decoded = recieved.decode("utf-8")
         data = decoded.split(",")
 
-        print(data)
         position = pyautogui.position()
-        pyautogui.moveTo(position[0] + data[0], position[1] + data[1])
+        pyautogui.dragTo(position[0] + int(data[0]), position[1] + int(data[1]))
 
 print('Received', repr(data))
 
