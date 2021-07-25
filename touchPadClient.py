@@ -12,9 +12,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     while True:
         s.sendall(b"1")
         recieved = s.recv(1024)
+        print(recieved)
         decoded = recieved.decode("utf-8")
         data = json.loads(decoded)
-        
+
         print(data)
         position = pyautogui.position()
         pyautogui.moveTo(position[0] + data[0], position[1] + data[1])
