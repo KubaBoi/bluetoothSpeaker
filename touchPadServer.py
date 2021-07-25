@@ -12,28 +12,29 @@ s.listen(5)
 print("Running...")
 conn, addr = s.accept()
 
-try:
-    print("Connected by", addr)
-    oldPosition = pyautogui.position()
-    while True:
-        data = conn.recv(1024)
-        if not data:
-            break
-        
-        newPosition = pyautogui.position()
+while True:
+    try:
+        print("Connected by", addr)
+        oldPosition = pyautogui.position()
+        while True:
+            data = conn.recv(1024)
+            if not data:
+                break
+            
+            newPosition = pyautogui.position()
 
-        print(newPosition)
-        print(oldPosition)
+            print(newPosition)
+            print(oldPosition)
 
-        deltaPosition = []
-        deltaPosition.append(newPosition[0] - oldPosition[0])
-        deltaPosition.append(newPosition[1] - oldPosition[1])
+            deltaPosition = []
+            deltaPosition.append(newPosition[0] - oldPosition[0])
+            deltaPosition.append(newPosition[1] - oldPosition[1])
 
-        oldPosition = newPosition
-        print(deltaPosition)
-        print(json.dumps(deltaPosition))
-        print(bytes(json.dumps(deltaPosition), "utf-8"))
+            oldPosition = newPosition
+            print(deltaPosition)
+            print(json.dumps(deltaPosition))
+            print(bytes(json.dumps(deltaPosition), "utf-8"))
 
-        conn.sendall(bytes(json.dumps(deltaPosition), "utf-8"))
-except Exception as e:
-    print("Disconnected by", addr)
+            conn.sendall(bytes(json.dumps(deltaPosition), "utf-8"))
+    except Exception as e:
+        print("Disconnected by", addr)
