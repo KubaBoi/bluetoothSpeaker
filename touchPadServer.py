@@ -11,6 +11,7 @@ s.bind((HOST, PORT))
 s.listen(5)
 print("Running...")
 conn, addr = s.accept()
+print("Connected by", addr)
 
 while True:
     try:
@@ -18,6 +19,7 @@ while True:
         oldPosition = pyautogui.position()
         while True:
             data = conn.recv(1024)
+            print(data)
             if not data:
                 break
             
