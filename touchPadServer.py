@@ -17,7 +17,6 @@ try:
     oldPosition = pyautogui.position()
     while True:
         data = conn.recv(1024)
-        print(data)
         if not data:
             break
         
@@ -28,6 +27,7 @@ try:
         deltaPosition.append(newPosition[1] - oldPosition[1])
 
         oldPosition = newPosition
+        print(deltaPosition)
 
         conn.sendall(bytes(json.dumps(deltaPosition), "utf-8"))
 except Exception as e:
