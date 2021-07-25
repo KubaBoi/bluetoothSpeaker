@@ -19,14 +19,10 @@ while True:
         oldPosition = pyautogui.position()
         while True:
             data = conn.recv(1024)
-            print(data)
             if not data:
                 break
             
             newPosition = pyautogui.position()
-
-            print(newPosition)
-            print(oldPosition)
 
             deltaPosition = []
             deltaPosition.append(newPosition[0] - oldPosition[0])
