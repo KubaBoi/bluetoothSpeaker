@@ -6,6 +6,8 @@ import tkinter as tk
 import requests
 from subprocess import call, check_output
 from player import BluePlayer
+from touchPadServer import TouchPadServer
+import threading
 
 print("Starting program")
 
@@ -15,13 +17,14 @@ class SampleApp(tk.Tk):
         self.attributes("-fullscreen", True)
         self.grid_columnconfigure(0, weight=200)
 
+        self.touchPad = TouchPadServer()
+
         self.player = BluePlayer()
         self.player.start()
 
         """
         0 - weather
         1 - bluetooth
-        2 - touchPad
         """
         self.show = 0 #stav obrazovky
         self.countShow = 2 #pocet obrazovek
@@ -199,10 +202,6 @@ class SampleApp(tk.Tk):
         else:
             return text
 
-<<<<<<< HEAD
-    return devices
-
-=======
 if __name__== "__main__":
     print("Creating window")
     app = SampleApp()
@@ -213,4 +212,3 @@ if __name__== "__main__":
         app.mainloop()
     except:
         print("Chyba :'(")"""
->>>>>>> c086f0076dcfafbeab5f5c85914846ece0e6b7fe
