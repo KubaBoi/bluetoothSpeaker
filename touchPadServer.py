@@ -34,8 +34,6 @@ while True:
 
             oldPosition = newPosition
             print(deltaPosition)
-            print(json.dumps(deltaPosition))
-            print(bytes(json.dumps(deltaPosition), "utf-8"))
 
             conn.sendall(bytes(json.dumps(deltaPosition), "utf-8"))
     except Exception as e:
