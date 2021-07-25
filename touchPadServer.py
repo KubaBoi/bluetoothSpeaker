@@ -5,6 +5,9 @@ import socket
 
 class TouchPadServer:
     def __init__(self):
+        pass
+
+    def start(self):
         HOST = ""  # Standard loopback interface address (localhost)
         PORT = 65432        # Port to listen on (non-privileged ports are > 1023)
 
