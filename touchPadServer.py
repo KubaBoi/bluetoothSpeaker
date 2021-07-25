@@ -40,7 +40,7 @@ while True:
     except Exception as e:
         print("Disconnected by", addr)
         print(str(i) + ": ")
-        print(e)
+        print(str(e))
         i += 1
         conn, addr = s.accept()
         print("Connected by", addr)
