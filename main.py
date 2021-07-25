@@ -11,3 +11,4 @@ def getDevices():
         devices.append((name, mac))
 
     return devices
+
