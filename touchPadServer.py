@@ -35,7 +35,7 @@ while True:
             oldPosition = newPosition
             print(deltaPosition)
             r = str(deltaPosition[0]) + "," + str(deltaPosition[1])
-            print(bytes(r, "utf-8"))
+            print(bytes(r))
 
             conn.sendall(bytes(r, "utf-8"))
     except Exception as e:
