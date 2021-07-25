@@ -38,7 +38,7 @@ while True:
             conn.sendall(bytes(json.dumps(deltaPosition), "utf-8"))
     except Exception as e:
         print("Disconnected by", addr)
-        print(str(i) + ": ")
+        #print(str(i) + ": ")
         print(e)
         i += 1
         conn, addr = s.accept()
