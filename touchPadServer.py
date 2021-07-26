@@ -32,8 +32,8 @@ class TouchPadServer:
                     self.newPosition = pyautogui.position()
 
                     if (deltaPosition[0] == 0 and deltaPosition[1] == 0 and
-                        self.newPosition[0] - self.oldPosition[0] != 0 and
-                        self.newPosition[1] - self.oldPosition[1] != 0):
+                        self.newPosition[0] - self.oldPosition[0] == 0 and
+                        self.newPosition[1] - self.oldPosition[1] == 0):
                         self.oldPosition = self.newPosition
                     
 
