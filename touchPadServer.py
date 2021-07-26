@@ -48,3 +48,6 @@ class TouchPadServer:
                 s.listen(5)
                 conn, addr = s.accept()
                 print("Connected by", addr)
+
+touchPad = TouchPadServer()
+touchPad.start()

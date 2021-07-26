@@ -7,9 +7,6 @@ import requests
 from subprocess import call, check_output
 from player import BluePlayer
 from touchPadServer import TouchPadServer
-import threading
-import random
-
 print("Starting program")
 
 class SampleApp(tk.Tk):
@@ -200,34 +197,9 @@ class SampleApp(tk.Tk):
             return text[:length] + "..."
         else:
             return text
-
-
-def list_append(count, id, out_list):
-    """
-    Creates an empty list and then appends a 
-    random number to the list 'count' number
-    of times. A CPU-heavy operation!
-    """
-    app = SampleApp()
-    touchPad = TouchPadServer()
-
-    out_list.append(app.mainloop())
-    out_list.append(touchPad.start())
     
 
 if __name__== "__main__":
     print("Creating window")
-
-    jobs = []
-    for i in range(0, 2):
-        out_list = list()
-        thread = threading.Thread(target=list_append(10000000, i, out_list))
-        jobs.append(thread)
-
-    # Start the threads (i.e. calculate the random number lists)
-    for j in jobs:
-        j.start()
-
-    # Ensure all of the threads have finished
-    for j in jobs:
-        j.join()
+    app = SampleApp()
+    app.mainloop()
