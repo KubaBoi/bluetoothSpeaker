@@ -15,6 +15,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         recieved = s.recv(1024)
         decoded = recieved.decode("utf-8")
         data = decoded.split(",")
+        print(data)
 
         try:
             pyautogui.dragRel(int(data[0]), int(data[1]))
