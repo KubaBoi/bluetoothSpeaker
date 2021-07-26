@@ -35,7 +35,7 @@ class TouchPadServer:
 
                     oldPosition = newPosition
                     r = str(deltaPosition[0]) + "," + str(deltaPosition[1])
-
+                    print(r)
                     conn.sendall(bytes(r))
             except Exception as e:
                 print("Disconnected by", addr)
