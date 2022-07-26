@@ -80,7 +80,12 @@ DiscoverableTimeout = 0 // uncomment
 
 sudo systemctl restart bluetooth
 
-bluetoothctl // check
+bluetoothctl
+
+- power on
+- discoverable on
+- pairable on
+- agent on
 
 pulseaudio --start
 
@@ -88,6 +93,14 @@ sudo systemctl status bluetooth // check
 ```
 
 ## Start at boot
+
+```
+systemctl --user enable pulseaudio
+
+sudo raspi-config
+
+3 B1 B2
+```
 
 ## Autopairing
 
