@@ -11,13 +11,13 @@ https://www.raspberrypi.org/forums/viewtopic.php?t=247892
 1. unpair pi - ```bluetoothctl```
 2. edit - ```sudo nano /lib/systemd/system/bluealsa.service```
 
-```json
+```
 ExecStart=/usr/bin/bluealsa --profile=a2dp-sink
 ```
 
 3. create - ```sudo nano /etc/systemd/system/aplay.service```
 
-```json
+```
 [Unit]
 Description=BlueALSA aplay service
 After=bluetooth.service
