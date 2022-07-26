@@ -97,6 +97,8 @@ sudo systemctl status bluetooth // check
 ```
 systemctl --user enable pulseaudio
 
+// tohle jenom prepne, ze se bude zapinat console misto desktopu
+
 sudo raspi-config
 
 Boot options / System options
