@@ -135,3 +135,15 @@ sudo systemctl start bt-agent
 
 sudo systemctl status bt-agent 
 ```
+
+## Output from jack
+
+```
+sudo raspi-config
+
+System Options
+
+Audio
+
+Headphones
+```
