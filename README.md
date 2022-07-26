@@ -58,3 +58,61 @@ does not work with latest version when display shield is on
 ```
 DiscoverableTimeout = 0
 ```
+
+# Second postup
+
+https://forums.raspberrypi.com/viewtopic.php?t=235519
+
+```
+sudo apt-get install pulseaudio pulseaudio-module-bluetooth
+
+sudo usermod -a -G bluetooth pi
+
+sudo reboot
+
+sudo nano /etc/bluetooth/main.conf
+
+...
+Class = 0x41C // add
+...
+DiscoverableTimeout = 0 // uncomment
+...
+
+sudo systemctl restart bluetooth
+
+bluetoothctl // check
+
+pulseaudio --start
+
+sudo systemctl status bluetooth // check
+```
+
+## Start at boot
+
+## Autopairing
+
+```
+sudo apt-get install bluez-tools
+
+sudo nano /etc/systemd/system/bt-agent.service
+
+...
+[Unit]
+Description=Bluetooth Auth Agent
+After=bluetooth.service
+PartOf=bluetooth.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bt-agent -c NoInputNoOutput
+
+[Install]
+WantedBy=bluetooth.target
+...
+
+sudo systemctl enable bt-agent
+
+sudo systemctl start bt-agent
+
+sudo systemctl status bt-agent 
+```
