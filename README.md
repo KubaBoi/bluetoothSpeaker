@@ -99,7 +99,11 @@ systemctl --user enable pulseaudio
 
 sudo raspi-config
 
-3 B1 B2
+Boot options / System options
+
+Boot / Auto Login / Desktop / CLI
+
+Console autologin
 ```
 
 ## Autopairing
